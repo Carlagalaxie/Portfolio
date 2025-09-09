@@ -108,4 +108,24 @@ footer {
 }
 
 
+/* Bouton pour le rapport */
+.rapport-btn {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 5px 0;
+  background-color: #c49e7f; /* beige foncé */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.rapport-btn:hover {
+  background-color: #f2e4d5;  /* fond crème clair */
+  color: #c49e7f;
+  transform: scale(1.05);
+}
+
+
 
