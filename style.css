@@ -1,0 +1,111 @@
+/* ========== BODY ========== */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background: linear-gradient(to bottom, #fff8f0, #f9eee0); /* dégradé beige/crème */
+  color: #333;
+  padding-top: 80px; /* espace pour le menu fixe */
+}
+
+/* ========== HEADER ========== */
+header {
+  background: #c49e7f; /* beige foncé */
+  color: white;
+  padding: 0.05rem;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Menu */
+header nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+header nav ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+/* ========== LIENS MENU AVEC HOVER SIMPLE ========== */
+header nav a {
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+  transition: all 0.3s ease; /* animation douce */
+}
+
+header nav a:hover {
+  background-color: #f2e4d5;  /* fond crème clair au survol */
+  color: #c49e7f;             /* texte beige foncé */
+  border-radius: 5px;          /* coins arrondis */
+  transform: scale(1.1);       /* légèrement agrandi */
+}
+
+/* ========== SECTIONS ========== */
+section {
+  padding: 3rem 2rem;
+  margin: 0 auto;
+  max-width: 1000px;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Alternance de couleurs pour les sections */
+section:nth-child(odd) {
+  background-color: rgba(255, 248, 240, 0.9); /* crème clair */
+}
+
+section:nth-child(even) {
+  background-color: rgba(245, 235, 220, 0.9); /* beige clair */
+}
+
+/* Titres */
+h2 {
+  color: #c49e7f; /* beige foncé pour les titres */
+  margin-bottom: 1rem;
+}
+
+/* Articles */
+article {
+  margin-bottom: 1.5rem;
+}
+
+/* ========== FOOTER ========== */
+footer {
+  text-align: center;
+  background: #c49e7f; /* beige foncé */
+  color: white;
+  padding: 1rem;
+  margin-top: 20px;
+}
+
+/* ========== BOUTONS CV / EMAIL ========== */
+#cv a {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 5px 0;
+  background-color: #c49e7f; /* beige foncé */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+#cv a:hover {
+  background-color: #f2e4d5;  /* fond crème clair */
+  color: #c49e7f;
+  transform: scale(1.05);
+}
+
+
+
