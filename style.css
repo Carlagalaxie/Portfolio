@@ -7,6 +7,7 @@ body {
   background: linear-gradient(to bottom, #fff8f0, #f9eee0); /* dégradé beige/crème */
   color: #333;
   padding-top: 80px; /* espace pour le menu fixe */
+  
 }
 
 /* ========== HEADER ========== */
@@ -83,11 +84,11 @@ article {
 /* ========== FOOTER ========== */
 footer {
   text-align: center;
-  background: #c49e7f; /* beige foncé */
+  background: #c49e7f;
   color: white;
-  padding: 1rem;
-  margin-top: 20px;
+  padding: 2rem 1rem; /* plus d’espace intérieur */
 }
+
 
 /* ========== BOUTONS CV / EMAIL ========== */
 #cv a {
@@ -127,5 +128,136 @@ footer {
   transform: scale(1.05);
 }
 
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.accordion.open .accordion-content {
+  max-height: 500px; /* assez grand pour contenir ton texte */
+}
+
+.accordion-title {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.accordion.open .accordion-title {
+  background-color: #f2e4d5;
+  color: #c49e7f;
+}
 
 
+.footer-link i {
+  margin-right: 6px;  /* espace entre l’icône et le texte */
+}
+
+.footer-link {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #f2e4d5; /* crème clair au survol */
+}
+
+/* Ajoute de l'espace après la dernière section avant le footer */
+section:last-of-type {
+  margin-bottom: 6rem; /* ajuster la valeur selon le rendu souhaité */
+}
+
+/* Menu déroulant */
+/* Menu déroulant */
+header nav ul li {
+  position: relative; /* nécessaire pour le dropdown */
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;  /* juste en dessous du parent */
+  left: 0;
+  background-color: #c49e7f;
+  min-width: 180px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  border-radius: 5px;
+  z-index: 1000;
+}
+
+.dropdown-content li {
+  display: block;
+  margin: 0;
+}
+
+.dropdown-content li a {
+  display: block;
+  padding: 8px 12px;
+  color: white;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.dropdown-content li a:hover {
+  background-color: #f2e4d5;
+  color: #c49e7f;
+}
+
+/* Afficher le sous-menu au hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+
+.cv-buttons {
+  display: flex;            /* aligne les éléments sur une ligne */
+  gap: 15px;                /* espace entre les boutons */
+  flex-wrap: wrap;          /* pour que ça passe à la ligne sur petit écran */
+  margin-top: 10px;         /* espace au-dessus */
+}
+
+.cv-btn {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #c49e7f; /* beige foncé */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.cv-btn:hover {
+  background-color: #f2e4d5;  /* fond crème clair */
+  color: #c49e7f;
+  transform: scale(1.05);
+}
+
+/* Boutons pour les séances */
+.seance-buttons {
+  display: flex;       /* aligne les boutons sur une ligne */
+  gap: 10px;           /* espace entre les boutons */
+  flex-wrap: wrap;     /* passe à la ligne sur petit écran */
+  margin-top: 10px;    /* espace au-dessus */
+}
+
+.seance-buttons .rapport-btn {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #c49e7f; /* beige foncé */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.seance-buttons .rapport-btn:hover {
+  background-color: #f2e4d5;  /* fond crème clair */
+  color: #c49e7f;
+  transform: scale(1.05);
+}

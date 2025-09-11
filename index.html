@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mon Portfolio</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body>
   <!-- ========== HEADER ========== -->
@@ -12,28 +14,29 @@
     <h1>Mon Portfolio</h1>
     <nav>
       <ul>
-        <li><a href="#cv">CV</a></li>
         <li><a href="#bio">Biographie</a></li>
-        <li><a href="#projets-cours">Projets du cours</a></li>
+        <li><a href="#cv">CV</a></li>
         <li><a href="#StageM1">Stage Master 1</a></li>
-        <li><a href="#autres-projets">Autres projets</a></li>
+        <li><a href="#projets personnels">Projets personnel</a></li>
+
+         <!-- Menu déroulant -->
+      <li class="dropdown">
+        <a href="#projets-cours">Projets du cours</a>
+        <ul class="dropdown-content">
+          <li><a href="#seance1">Séance 1</a></li>
+          <li><a href="#seance2">Séance 2</a></li>
+          <li><a href="#seance3">Séance 3</a></li>
+          <li><a href="#seance4">Séance 4</a></li>
+          <li><a href="#seance5">Séance 5</a></li>
+          <li><a href="#seance6">Séance 6</a></li>
+        </ul>
+      </li>
+        
       </ul>
     </nav>
   </header>
 
- <section id="cv">
-  <h2>CV et contact</h2>
-  <p>
-    <a href="cv.pdf" target="_blank">Mon CV </a>
-  </p>
-  <p>
-    <a href="mailto:roussellecarla@gmail.com">Envoyez-moi un email</a>
 
-    <p>
-  <a href="https://www.linkedin.com/in/carla-rousselle-957259273/" target="_blank">Mon profil LinkedIn</a>
-</p>
-  </p>
-</section>
 
   <!-- ========== BIOGRAPHIE ========== -->
   <section id="bio">
@@ -48,35 +51,41 @@
          au service de projets innovants dans le domaine de la modélisation et de la simulation.</p>
   </section>
 
+   <section id="cv">
+  <h2>CV </h2>
+   <!-- Bouton CV -->
+  <div class="cv-buttons">
+    <a href="cv.pdf" target="_blank" class="cv-btn">Mon CV</a>
+    <a href="mailto:roussellecarla@gmail.com" class="cv-btn">
+      <i class="fa-solid fa-envelope"></i> Email
+    </a>
+    <a href="https://www.linkedin.com/in/carla-rousselle-957259273/" target="_blank" class="cv-btn">
+      <i class="fa-brands fa-linkedin"></i> LinkedIn
+    </a>
+  </div>
+
+    <!-- Compétences techniques -->
+  <h3>Compétences Techniques (Modélisation & Calcul Scientifique)</h3>
+  <ul>
+    <li><strong>Simulation numérique :</strong> Expérience en simulation de la dynamique des gaz compressibles.</li>
+     <li><strong>Méthodes numériques :</strong> Maîtrise des <strong>éléments finis</strong>, <strong>volumes finis</strong> et <strong>différences finies</strong>.</li>
+    <li><strong>Développement de solveurs :</strong> Implémentation et comparaison de solveurs de Riemann pour l'analyse de flux numériques.</li>
+    <li><strong>Langages de programmation :</strong> Maîtrise de Python (Jupyter, VS Code, NumPy, Matplotlib), C++, MATLAB, R, et Java.</li>
+    <li><strong>Logiciels & Outils :</strong> Expérience avec FreeFem++, Pack Office, et initiation au développement web (HTML/CSS).</li>
+  </ul>
+
+  <!-- Compétences personnelles -->
+  <h3>Compétences Personnelles</h3>
+  <ul>
+    <li>Rigueur, autonomie, organisation et adaptabilité</li>
+    <li>Expérience en accueil client et travail en équipe (saisonnier).</li>
+    <li><strong>Langues :</strong> Anglais (niveau B1).</li>
+  </ul>
+</section>
 
 
-  <!-- ========== PROJETS DU COURS ========== -->
-  <section id="projets-cours">
-    <h2>Projets du cours : Estimation à posteriori</h2>
-    <article>
-      <h3>Séance 1 : </h3>
-      <p>Le but de la séance 1 est la résolution d’une EDO par Euler explicite,
-        faire la comparaison avec la solution exacte, et analyse de l’erreur en fonction du pas de temps.</p>
 
-        <p>
-  <a href="\estimation\Euler_ODE_Errors.py" target="_blank" class="rapport-btn">Télécharger Euler_ODE_Errors</a>
-</p>
- <p>
-  <a href="\estimation\2D.py" target="_blank" class="rapport-btn">2D</a>
-</p>
-<p>
-  <a href="\estimation\passage1D.pdf" target="_blank" class="rapport-btn">explication passage 1D</a>
-</p>
-    </article>
-
-
-    <article>
-      <h3>Séance 2 :</h3>
-      <p>Description d’un autre projet du cours.</p>
-    </article>
-  </section>
-
- <!-- ========== STAGE M1 ========== -->
+  <!-- ========== STAGE M1 ========== -->
 <section id="StageM1">
   <h2>Stage Master 1</h2>
 
@@ -99,7 +108,7 @@
     <ul>
       <li>Modélisation mathématique (EDP hyperboliques)</li>
       <li>Méthodes numériques (volumes finis, solveurs de Riemann)</li>
-      <li>Programmation scientifique (Python, MATLAB, C++)</li>
+      <li>Programmation scientifique (Python)</li>
       <li>Analyse critique de résultats numériques</li>
     </ul>
   </article>
@@ -116,9 +125,10 @@
 </section>
 
 
-  <!-- ========== AUTRES PROJETS ========== -->
-  <section id="autres-projets">
-    <h2>Autres projets</h2>
+
+<!-- ========== AUTRES PROJETS ========== -->
+  <section id="projets personnel">
+    <h2>Projets personnel</h2>
     <article>
       <h3>Projet personnel / autre cours</h3>
       <p>Description .</p>
@@ -129,10 +139,100 @@
     </article>
   </section>
 
+
+
+
+
+  <!-- ========== PROJETS DU COURS ========== -->
+  <section id="projets-cours">
+  <h2>Projets du cours : Estimation à posteriori</h2>
+
+  <!-- Séance 1 -->
+  <article id="seance1" class="accordion">
+    <h3>
+      <span class="accordion-title rapport-btn">Séance 1</span>
+    </h3>
+    <div class="accordion-content">
+      <p>Le but de la séance 1 est la résolution d’une EDO par Euler explicite,
+         faire la comparaison avec la solution exacte, et analyse de l’erreur en fonction du pas de temps.</p>
+
+          <!-- Boutons regroupés pour alignement -->
+    <div class="seance-buttons">
+      <a href="estimation/Euler_ODE_Errors.py" target="_blank" class="rapport-btn">Télécharger Euler_ODE_Errors</a>
+      <a href="estimation/2D.py" target="_blank" class="rapport-btn">2D</a>
+      <a href="estimation/passage1D.pdf" target="_blank" class="rapport-btn">Explication passage 1D</a>
+    </div>
+    
+    </div>
+  </article>
+
+
+<!-- Séance 2 -->
+  <article id="seance2" class="accordion">
+    <h3>
+      <span class="accordion-title rapport-btn">Séance 2</span>
+    </h3>
+    <div class="accordion-content">
+      <p>Description de la séance 2.</p>
+    </div>
+  </article>
+
+  <!-- Séance 3 -->
+  <article id="seance3" class="accordion">
+    <h3>
+      <span class="accordion-title rapport-btn">Séance 3</span>
+    </h3>
+    <div class="accordion-content">
+      <p>Description de la séance 3.</p>
+    </div>
+  </article>
+
+  <!-- Séance 4 -->
+  <article id="seance4" class="accordion">
+    <h3>
+      <span class="accordion-title rapport-btn">Séance 4</span>
+    </h3>
+    <div class="accordion-content">
+      <p>Description de la séance 4.</p>
+    </div>
+  </article>
+
+  <!-- Séance 5 -->
+  <article id="seance5" class="accordion">
+    <h3>
+      <span class="accordion-title rapport-btn">Séance 5</span>
+    </h3>
+    <div class="accordion-content">
+      <p>Description de la séance 5.</p>
+    </div>
+  </article>
+
+  <!-- Séance 6 -->
+  <article id="seance6" class="accordion">
+    <h3>
+      <span class="accordion-title rapport-btn">Séance 6</span>
+    </h3>
+    <div class="accordion-content">
+      <p>Description de la séance 6.</p>
+    </div>
+  </article>
+</section>
+
+
+
   <!-- ========== FOOTER ========== -->
   <footer>
     <p>© 2025 - Mon Portfolio</p>
+     <p>
+     <a href="mailto:roussellecarla@gmail.com" class="footer-link">
+      <i class="fa-solid fa-envelope"></i> Email
+    </a> |
+    <a href="https://www.linkedin.com/in/carla-rousselle-957259273/" target="_blank" class="footer-link">
+      <i class="fa-brands fa-linkedin"></i> LinkedIn
+    </a>
+  </p>
   </footer>
+  <script src="script.js"></script>
 </body>
 </html>
 
