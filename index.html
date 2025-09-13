@@ -3,254 +3,223 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mon Portfolio</title>
+  <title data-key="pageTitle">Mon Portfolio</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 </head>
 <body>
   <!-- ========== HEADER ========== -->
   <header>
-    <h1>Mon Portfolio</h1>
+    <h1 data-key="headerTitle">Mon Portfolio</h1>
     <nav>
       <ul>
-        <li><a href="#bio">Biographie</a></li>
-        <li><a href="#cv">CV</a></li>
-        <li><a href="#StageM1">Stage Master 1</a></li>
-        <li><a href="#projets personnels">Projets personnel</a></li>
-
-         <!-- Menu déroulant -->
-      <li class="dropdown">
-        <a href="#projets-cours">Projets du cours</a>
-        <ul class="dropdown-content">
-          <li><a href="#seance1">Séance 1</a></li>
-          <li><a href="#seance2">Séance 2</a></li>
-          <li><a href="#seance3">Séance 3</a></li>
-          <li><a href="#seance4">Séance 4</a></li>
-          <li><a href="#seance5">Séance 5</a></li>
-          <li><a href="#seance6">Séance 6</a></li>
-        </ul>
-      </li>
-        
+        <li><a href="#bio" data-key="navBio">Biographie</a></li>
+        <li><a href="#cv" data-key="navCV">CV</a></li>
+        <li><a href="#StageM1" data-key="navStage">Stage Master 1</a></li>
+        <li><a href="#projets-personnels" data-key="navProjets">Projets personnel</a></li>
+        <!-- Menu déroulant -->
+        <li class="dropdown">
+          <a href="#projets-cours" data-key="navProjetsCours">Projets du cours</a>
+          <ul class="dropdown-content">
+            <li><a href="#seance1" data-key="navSeance1">Séance 1</a></li>
+            <li><a href="#seance2" data-key="navSeance2">Séance 2</a></li>
+            <li><a href="#seance3" data-key="navSeance3">Séance 3</a></li>
+            <li><a href="#seance4" data-key="navSeance4">Séance 4</a></li>
+            <li><a href="#seance5" data-key="navSeance5">Séance 5</a></li>
+            <li><a href="#seance6" data-key="navSeance6">Séance 6</a></li>
+          </ul>
+        </li>
       </ul>
     </nav>
+    <!-- Bouton langue -->
+    <button id="lang-toggle">
+  <img src="drapeau-gb.png"  class="flag-icon"> EN
+</button>
   </header>
-
-
 
   <!-- ========== BIOGRAPHIE ========== -->
   <section id="bio">
-    <h2>Biographie</h2>
-    <p>Je suis étudiante en Master 2 de Modélisation et Analyse Numérique à l’Université de Montpellier.
-         Passionnée par les mathématiques appliquées et la simulation numérique, 
-         je m’intéresse particulièrement à la résolution de problèmes complexes 
-         à l’aide de méthodes numériques et de modèles mathématiques. 
-         Mon parcours m’a permis de développer des compétences en programmation scientifique 
-         et en modélisation de systèmes physiques. 
-         Curieuse et rigoureuse, je cherche à mettre mes connaissances 
-         au service de projets innovants dans le domaine de la modélisation et de la simulation.</p>
+    <h2 data-key="bioTitle">Biographie</h2>
+    <div class="bio-container">
+      <img src="profil.jpg" alt="Photo de profil" class="photo-profil">
+      <p data-key="bioText">
+        Je suis étudiante en Master 2 de Modélisation et Analyse Numérique à l’Université de Montpellier.
+        Passionnée par les mathématiques appliquées et la simulation numérique, 
+        je m’intéresse particulièrement à la résolution de problèmes complexes 
+        à l’aide de méthodes numériques et de modèles mathématiques. 
+        Mon parcours m’a permis de développer des compétences en programmation scientifique 
+        et en modélisation de systèmes physiques. 
+        Curieuse et rigoureuse, je cherche à mettre mes connaissances 
+        au service de projets innovants dans le domaine de la modélisation et de la simulation.
+      </p>
+    </div>
   </section>
 
-   <section id="cv">
-  <h2>CV </h2>
-   <!-- Bouton CV -->
-  <div class="cv-buttons">
-    <a href="cv.pdf" target="_blank" class="cv-btn">Mon CV</a>
-    <a href="mailto:roussellecarla@gmail.com" class="cv-btn">
-      <i class="fa-solid fa-envelope"></i> Email
-    </a>
-    <a href="https://www.linkedin.com/in/carla-rousselle-957259273/" target="_blank" class="cv-btn">
-      <i class="fa-brands fa-linkedin"></i> LinkedIn
-    </a>
-  </div>
-
-    <!-- Compétences techniques -->
-  <h3>Compétences Techniques (Modélisation & Calcul Scientifique)</h3>
-  <ul>
-    <li><strong>Simulation numérique :</strong> Expérience en simulation de la dynamique des gaz compressibles.</li>
-     <li><strong>Méthodes numériques :</strong> Maîtrise des <strong>éléments finis</strong>, <strong>volumes finis</strong> et <strong>différences finies</strong>.</li>
-    <li><strong>Développement de solveurs :</strong> Implémentation et comparaison de solveurs de Riemann pour l'analyse de flux numériques.</li>
-    <li><strong>Langages de programmation :</strong> Maîtrise de Python (Jupyter, VS Code, NumPy, Matplotlib), C++, MATLAB, R, et Java.</li>
-    <li><strong>Logiciels & Outils :</strong> Expérience avec FreeFem++, Pack Office, et initiation au développement web (HTML/CSS).</li>
-  </ul>
-
-  <!-- Compétences personnelles -->
-  <h3>Compétences Personnelles</h3>
-  <ul>
-    <li>Rigueur, autonomie, organisation et adaptabilité</li>
-    <li>Expérience en accueil client et travail en équipe (saisonnier).</li>
-    <li><strong>Langues :</strong> Anglais (niveau B1).</li>
-  </ul>
-</section>
-
-
+  <!-- ========== CV ========== -->
+  <section id="cv">
+    <h2 data-key="cvTitle">CV</h2>
+    <!-- Boutons CV -->
+    <div class="cv-buttons">
+      <a href="cv.pdf" target="_blank" class="cv-btn" data-key="btnCV">Mon CV</a>
+      <a href="mailto:roussellecarla@gmail.com" class="cv-btn" data-key="btnEmail">
+        <i class="fa-solid fa-envelope"></i> Email
+      </a>
+      <a href="https://www.linkedin.com/in/carla-rousselle-957259273/" target="_blank" class="cv-btn" data-key="btnLinkedIn">
+        <i class="fa-brands fa-linkedin"></i> LinkedIn
+      </a>
+    </div>
+    <h3 data-key="skillsTech">Compétences Techniques (Modélisation & Calcul Scientifique)</h3>
+    <ul>
+      <li data-key="skillSim"><strong>Simulation numérique :</strong> Expérience en simulation de la dynamique des gaz compressibles.</li>
+      <li data-key="skillNum"><strong>Méthodes numériques :</strong> Maîtrise des <strong>éléments finis</strong>, <strong>volumes finis</strong> et <strong>différences finies</strong>.</li>
+      <li data-key="skillSolver"><strong>Développement de solveurs :</strong> Implémentation et comparaison de solveurs de Riemann pour l'analyse de flux numériques.</li>
+      <li data-key="skillLang"><strong>Langages de programmation :</strong> Maîtrise de Python (Jupyter, VS Code, NumPy, Matplotlib), C++, MATLAB, R, et Java.</li>
+      <li data-key="skillTools"><strong>Logiciels & Outils :</strong> Expérience avec FreeFem++, Pack Office, et initiation au développement web (HTML/CSS).</li>
+    </ul>
+    <h3 data-key="skillsPers">Compétences Personnelles</h3>
+    <ul>
+      <li data-key="skillPers1">Rigueur, autonomie, organisation et adaptabilité</li>
+      <li data-key="skillPers2">Expérience en accueil client et travail en équipe (saisonnier).</li>
+      <li data-key="skillPersLang"><strong>Langues :</strong> Anglais (niveau B1).</li>
+    </ul>
+  </section>
 
   <!-- ========== STAGE M1 ========== -->
-<section id="StageM1">
-  <h2>Stage Master 1</h2>
-
-  <!-- Description du stage -->
-  <article>
-    <h3>Description du stage :</h3>
-    <p>
-      Stage réalisé à l’Institut de Mathématiques de Montpellier sous la supervision de M. VILAR.  
-      Ce stage de Master 1 en mathématiques appliquées et modélisation a porté sur la simulation numérique d’écoulements de gaz compressibles régis par les équations d’Euler.  
-      Ces équations hyperboliques de conservation sont essentielles dans des domaines tels que l’aéronautique et l’aérospatial.
-    </p>
-    <p>
-      L'objectif principal du stage était d'implémenter et comparer plusieurs solveurs de Riemann approchés :  
-      <strong>Rusanov, HLL, HLLC, Roe</strong> pour résoudre efficacement les discontinuités physiques (chocs, détentes, contacts).  
-      L’analyse portait sur la robustesse, la précision et la positivité de ces méthodes, suivie de la validation sur des cas tests classiques (tube de Sod, discontinuité de contact).
-    </p>
-
-    <!-- Compétences mobilisées -->
-    <h4>Compétences mobilisées :</h4>
-    <ul>
-      <li>Modélisation mathématique (EDP hyperboliques)</li>
-      <li>Méthodes numériques (volumes finis, solveurs de Riemann)</li>
-      <li>Programmation scientifique (Python)</li>
-      <li>Analyse critique de résultats numériques</li>
-    </ul>
-  </article>
-
-  <!-- Rapport -->
-  <article>
-    <h3>Rapport écrit : Dynamique des gaz compressibles</h3>
-    <p>
-      <a href="Rapport Stage M1.pdf" target="_blank" class="rapport-btn">
-        Modélisation Numérique de la Dynamique des Gaz Compressibles
-      </a>
-    </p>
-  </article>
-</section>
-
-
-
-<!-- ========== AUTRES PROJETS ========== -->
-  <section id="projets personnel">
-    <h2>Projets personnel</h2>
+  <section id="StageM1">
+    <h2 data-key="stageTitle">Stage Master 1</h2>
     <article>
-      <h3>Projet personnel / autre cours</h3>
-      <p>Description .</p>
+      <h3 data-key="stageDescTitle">Description du stage :</h3>
+      <p data-key="stageDesc1">
+        Stage réalisé à l’Institut de Mathématiques de Montpellier sous la supervision de M. VILAR.  
+        Ce stage de Master 1 en mathématiques appliquées et modélisation a porté sur la simulation numérique d’écoulements de gaz compressibles régis par les équations d’Euler.  
+        Ces équations hyperboliques de conservation sont essentielles dans des domaines tels que l’aéronautique et l’aérospatial.
+      </p>
+      <p data-key="stageDesc2">
+        L'objectif principal du stage était d'implémenter et comparer plusieurs solveurs de Riemann approchés :  
+        <strong>Rusanov, HLL, HLLC, Roe</strong> pour résoudre efficacement les discontinuités physiques (chocs, détentes, contacts).  
+        L’analyse portait sur la robustesse, la précision et la positivité de ces méthodes, suivie de la validation sur des cas tests classiques (tube de Sod, discontinuité de contact).
+      </p>
+      <h4 data-key="stageSkillsTitle">Compétences mobilisées :</h4>
+      <ul>
+        <li data-key="stageSkill1">Modélisation mathématique (EDP hyperboliques)</li>
+        <li data-key="stageSkill2">Méthodes numériques (volumes finis, solveurs de Riemann)</li>
+        <li data-key="stageSkill3">Programmation scientifique (Python)</li>
+        <li data-key="stageSkill4">Analyse critique de résultats numériques</li>
+      </ul>
     </article>
     <article>
-      <h3>Autre projet</h3>
-      <p>Description d’un second projet.</p>
+      <h3 data-key="stageReportTitle">Rapport écrit : Dynamique des gaz compressibles</h3>
+      <p>
+        <a href="Rapport Stage M1.pdf" target="_blank" class="rapport-btn" data-key="stageReportBtn">
+          Modélisation Numérique de la Dynamique des Gaz Compressibles
+        </a>
+      </p>
     </article>
   </section>
 
-
-
-
+  <!-- ========== AUTRES PROJETS ========== -->
+  <section id="projets-personnels">
+    <h2 data-key="projectsTitle">Projets personnel</h2>
+    <article>
+      <h3 data-key="project1Title">Projet personnel / autre cours</h3>
+      <p data-key="project1Desc">Description .</p>
+    </article>
+    <article>
+      <h3 data-key="project2Title">Autre projet</h3>
+      <p data-key="project2Desc">Description d’un second projet.</p>
+    </article>
+  </section>
 
   <!-- ========== PROJETS DU COURS ========== -->
   <section id="projets-cours">
-  <h2>Projets du cours : Estimation à posteriori</h2>
+    <h2 data-key="courseProjectsTitle">Projets du cours : Estimation à posteriori</h2>
 
-  <!-- Séance 1 -->
-  <article id="seance1" class="accordion">
-    <h3>
-      <span class="accordion-title rapport-btn">Séance 1</span>
-    </h3>
-    <div class="accordion-content">
-      <p>Le but de la séance 1 est la résolution d’une EDO par Euler explicite,
-         faire la comparaison avec la solution exacte, et analyse de l’erreur en fonction du pas de temps.</p>
+    <!-- Séance 1 -->
+    <article id="seance1" class="accordion">
+      <h3>
+        <span class="accordion-title rapport-btn" data-key="seance1Title">Séance 1</span>
+      </h3>
+      <div class="accordion-content">
+        <p data-key="seance1Desc">Le but de la séance 1 est la résolution d’une EDO par Euler explicite,
+           faire la comparaison avec la solution exacte, et analyse de l’erreur en fonction du pas de temps.</p>
+        <div class="seance-buttons">
+          <a href="estimation/seance1/Euler_ODE_Errors.py" target="_blank" class="rapport-btn" data-key="seance1Btn1">Télécharger Euler_ODE_Errors</a>
+          <a href="estimation/seance1/2D.py" target="_blank" class="rapport-btn" data-key="seance1Btn2">2D</a>
+          <a href="estimation/seance1/passage1D.pdf" target="_blank" class="rapport-btn" data-key="seance1Btn3">Explication séance 1</a>
+        </div>
+      </div>
+    </article>
 
-          <!-- Boutons regroupés pour alignement -->
-    <div class="seance-buttons">
-      <a href="estimation/seance1/Euler_ODE_Errors.py" target="_blank" class="rapport-btn">Télécharger Euler_ODE_Errors</a>
+    <!-- Séance 2 -->
+    <article id="seance2" class="accordion">
+      <h3>
+        <span class="accordion-title rapport-btn" data-key="seance2Title">Séance 2</span>
+      </h3>
+      <div class="accordion-content">
+        <p data-key="seance2Desc">Le code adrs.py résout numériquement une équation ADRS (advection–diffusion–réaction–source) 1D
+           par différences finies. Il compare ensuite la solution numérique avec une solution exacte fabriquée. De plus, il étudie la convergence en raffinement de maillage.
+           Et pour finir, il trace la solution numérique finale,la décroissance du résidu,et calcule l’erreur numérique.</p>
+        <a href="estimation/seance2/adrsmodif.py" target="_blank" class="rapport-btn" data-key="seance2Btn1">Télécharger adrsmodif</a>
+        <a href="estimation/seance2/adrsmodif2.py" target="_blank" class="rapport-btn" data-key="seance2Btn2">Télécharger adrsmodif2</a>
+        <a href="estimation/seance2/adrsmesh.py" target="_blank" class="rapport-btn" data-key="seance2Btn3">Télécharger adrsmesh</a>
+        <a href="estimation/seance2/estimation_séance_2.pdf" target="_blank" class="rapport-btn" data-key="seance2Btn4">Explication séance 2</a>
+        <a href="estimation/seance2/integrale.py" target="_blank" class="rapport-btn" data-key="seance2Btn5">Télécharger integrale</a>
+      </div>
+    </article>
 
-      <a href="estimation/seance1/2D.py" target="_blank" class="rapport-btn">2D</a>
-      <a href="estimation/seance1/passage1D.pdf" target="_blank" class="rapport-btn">Explication séance 1</a>
-    </div>
-    
-    </div>
-  </article>
+    <!-- Séance 3 -->
+    <article id="seance3" class="accordion">
+      <h3>
+        <span class="accordion-title rapport-btn" data-key="seance3Title">Séance 3</span>
+      </h3>
+      <div class="accordion-content">
+        <p data-key="seance3Desc">...</p>
+      </div>
+    </article>
 
+    <!-- Séance 4 -->
+    <article id="seance4" class="accordion">
+      <h3>
+        <span class="accordion-title rapport-btn" data-key="seance4Title">Séance 4</span>
+      </h3>
+      <div class="accordion-content">
+        <p data-key="seance4Desc">Description de la séance 4.</p>
+      </div>
+    </article>
 
-<!-- Séance 2 -->
-  <article id="seance2" class="accordion">
-    <h3>
-      <span class="accordion-title rapport-btn">Séance 2</span>
-    </h3>
-    <div class="accordion-content">
-      <p>Le code adrs.py résout numériquement une équation ADRS (advection–diffusion–réaction–source) 1D
-         par différences finies. Il compare ensuite la solution numérique avec une solution exacte
-          fabriquée. De plus, il étudie la convergence en raffinement de maillage.
-          Et pour finir, il trace la solution numérique finale,la décroissance du résidu,et calcule l’erreur numérique.</p>
+    <!-- Séance 5 -->
+    <article id="seance5" class="accordion">
+      <h3>
+        <span class="accordion-title rapport-btn" data-key="seance5Title">Séance 5</span>
+      </h3>
+      <div class="accordion-content">
+        <p data-key="seance5Desc">Description de la séance 5.</p>
+      </div>
+    </article>
 
-          <a href="estimation/seance2/adrsmodif.py" target="_blank" class="rapport-btn">Télécharger adrsmodif</a>
-
-           <a href="estimation/seance2/adrsmodif2.py" target="_blank" class="rapport-btn">Télécharger adrsmodif2</a>
-           <a href="estimation/seance2/adrsmesh.py" target="_blank" class="rapport-btn">Télécharger adrsmesh</a>
-           <a href="estimation/seance2/estimation_séance_2.pdf" target="_blank" class="rapport-btn">Explication séance 2</a>
-            <a href="estimation/seance2/integrale.py" target="_blank" class="rapport-btn">Télécharger integrale</a>
-    </div>
-  </article>
-
-
-
-
-  <!-- Séance 3 -->
-  <article id="seance3" class="accordion">
-    <h3>
-      <span class="accordion-title rapport-btn">Séance 3</span>
-    </h3>
-    <div class="accordion-content">
-      <p>...
-
-      </p>
-    </div>
-  </article>
-
-
-
-  <!-- Séance 4 -->
-  <article id="seance4" class="accordion">
-    <h3>
-      <span class="accordion-title rapport-btn">Séance 4</span>
-    </h3>
-    <div class="accordion-content">
-      <p>Description de la séance 4.</p>
-    </div>
-  </article>
-
-  <!-- Séance 5 -->
-  <article id="seance5" class="accordion">
-    <h3>
-      <span class="accordion-title rapport-btn">Séance 5</span>
-    </h3>
-    <div class="accordion-content">
-      <p>Description de la séance 5.</p>
-    </div>
-  </article>
-
-  <!-- Séance 6 -->
-  <article id="seance6" class="accordion">
-    <h3>
-      <span class="accordion-title rapport-btn">Séance 6</span>
-    </h3>
-    <div class="accordion-content">
-      <p>Description de la séance 6.</p>
-    </div>
-  </article>
-</section>
-
-
+    <!-- Séance 6 -->
+    <article id="seance6" class="accordion">
+      <h3>
+        <span class="accordion-title rapport-btn" data-key="seance6Title">Séance 6</span>
+      </h3>
+      <div class="accordion-content">
+        <p data-key="seance6Desc">Description de la séance 6.</p>
+      </div>
+    </article>
+  </section>
 
   <!-- ========== FOOTER ========== -->
   <footer>
-    <p>© 2025 - Mon Portfolio</p>
-     <p>
-     <a href="mailto:roussellecarla@gmail.com" class="footer-link">
-      <i class="fa-solid fa-envelope"></i> Email
-    </a> |
-    <a href="https://www.linkedin.com/in/carla-rousselle-957259273/" target="_blank" class="footer-link">
-      <i class="fa-brands fa-linkedin"></i> LinkedIn
-    </a>
-  </p>
+    <p data-key="footerCopy">© 2025 - Mon Portfolio</p>
+    <p>
+      <a href="mailto:roussellecarla@gmail.com" class="footer-link" data-key="footerEmail">
+        <i class="fa-solid fa-envelope"></i> Email
+      </a> |
+      <a href="https://www.linkedin.com/in/carla-rousselle-957259273/" target="_blank" class="footer-link" data-key="footerLinkedIn">
+        <i class="fa-brands fa-linkedin"></i> LinkedIn
+      </a>
+    </p>
   </footer>
   <script src="script.js"></script>
 </body>
 </html>
-
