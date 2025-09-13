@@ -24,6 +24,11 @@ header {
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
+/* Animation de défilement doux */
+html {
+  scroll-behavior: smooth;
+}
+
 /* Menu */
 header nav ul {
   list-style: none;
@@ -303,36 +308,54 @@ header nav ul li {
   }
 }
 
-/* Bouton langue */
-#lang-toggle {
-  margin-left: 20px;
-  padding: 6px 12px;
-  border: none;
-  border-radius: 5px;
-  background: #f2e4d5;
-  color: rgb(5, 5, 5);
-  cursor: pointer;
-  font-weight: bold;
-  transition: background 0.3s;
-  display: flex;
-  align-items: center;
-  gap: 6px; /* espace entre l'icône et le texte */
-}
-
-#lang-toggle {
+/* ========== BOUTONS LANGUE ========== */
+/* Conteneur du bouton langue */
+#controls {
   position: absolute;
   top: 10px;
   right: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
+/* Bouton langue */
+#lang-toggle {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #c49e7f;  /* couleur beige foncé */
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 6px; /* espace entre icône et texte */
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
 
+/* Hover du bouton langue */
 #lang-toggle:hover {
-  background: #555;
+  background-color: #f2e4d5; /* fond crème clair */
+  color: #c49e7f;            /* texte beige foncé */
+  transform: scale(1.05);
 }
 
-
-
+/* Icône du drapeau */
 #lang-toggle img.flag-icon {
-  width: 24px; /* taille de l'icône */
+  width: 24px;
   height: auto;
+}
+
+/* Responsive : bouton plus petit sur mobile */
+@media (max-width: 768px) {
+  #controls {
+    top: 5px;
+    right: 5px;
+    gap: 5px;
+  }
+  #lang-toggle {
+    padding: 4px 8px;
+    font-size: 0.9rem;
+  }
 }

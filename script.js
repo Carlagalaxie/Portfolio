@@ -141,3 +141,24 @@ function toggleLanguage() {
     }
   });
 }
+
+
+
+//Luminosité
+const themeToggle = document.getElementById('theme-toggle');
+themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+
+    // Optionnel : stocker la préférence dans le localStorage
+    if(document.body.classList.contains('dark')){
+        localStorage.setItem('theme', 'dark');
+    } else {
+        localStorage.setItem('theme', 'light');
+    }
+});
+
+// Charger la préférence au démarrage
+window.addEventListener('load', () => {
+    const savedTheme = localStorage.getItem('theme');
+    if(savedTheme === 'dark') document.body.classList.add('dark');
+});
