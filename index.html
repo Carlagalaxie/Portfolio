@@ -123,16 +123,50 @@
 
   <!-- ========== AUTRES PROJETS ========== -->
   <section id="projets-personnels">
-    <h2 data-key="projectsTitle">Projets personnel</h2>
-    <article>
-      <h3 data-key="project1Title">Projet personnel / autre cours</h3>
-      <p data-key="project1Desc">      </p>
+    <h2 data-key="projectsTitle">Projet personnels</h2>
+    
+
+    <!-- Projet 1 -->
+   
+      <h3 data-key="Projet1Title">  Projet 1: Simulation de diffusion de la chaleur</h3>
+        <p data-key="Projet1Desc"> Ce projet modélise la répartition de la température dans une pièce carrée équipée d’un radiateur et d’une fenêtre.</p>
+         
+        <p data-key="Projet1Desc2">La chaleur est simulée grâce à un schéma numérique basé sur l’équation de diffusion, en tenant compte des pertes thermiques par la fenêtre et de l’apport du radiateur.</p>
+      
+
+<h4 data-key="ResultatsTitle">Résultats:</h4>
+      <ul>
+        <li data-key="ProjSkill1">Visualisation en 2D et 3D de l’évolution de la température.</li>
+        <li data-key="ProjSkill2">Calcul de la température moyenne et de l’écart-type, indicateurs du confort thermique.</li>
+        <li data-key="ProjSkill3">Analyse de l’impact de la position du radiateur et des ouvertures.</li>
+      </ul>
+
+ <!-- résultat numérique -->
+  <h4 data-key="ResultatsNumTitle">Simulations numériques :</h4>
+
+      
+     <!-- Image -->
+    <div class="image-container">
+        <img src="Projetperso/répartition1.png" alt="Exemple1">
+        <img src="Projetperso/répartition2.png" alt="Exemple2">
+        <img src="Projetperso/répartition3.png" alt="Exemple3">
+      </div>
+
+      <!-- GIF -->
+    <div class="gif-row">
+       <img src="Projetperso/diffusion_chaleur1.gif" alt="Mon GIF1">
+       <img src="Projetperso/diffusion_chaleur2.gif" alt="Mon GIF2">
+    </div>
+
+      
+
+  <p>Cette simulation illustre comment la modélisation numérique peut aider à comprendre et optimiser la diffusion de chaleur dans un espace clos.</p>
+     
     </article>
-    <article>
-      <h3 data-key="project2Title">Autre projet</h3>
-      <p data-key="project2Desc">    </p>
-    </article>
+    
   </section>
+  
+
 
   <!-- ========== PROJETS DU COURS ========== -->
   <section id="projets-cours">
@@ -147,10 +181,10 @@
         <p data-key="seance1Desc">Le but de la séance 1 est la résolution d’une EDO par Euler explicite,
            faire la comparaison avec la solution exacte, et analyse de l’erreur en fonction du pas de temps.</p>
         <div class="seance-buttons">
-          <a href="estimation/seance1/Euler_ODE_Errors.py" target="_blank" class="rapport-btn" data-key="seance1Btn1">Télécharger Euler_ODE_Errors</a>
-          <a href="estimation/seance1/2D.py" target="_blank" class="rapport-btn" data-key="seance1Btn2">2D</a>
-          <a href="estimation/seance1/passage1D.pdf" target="_blank" class="rapport-btn" data-key="seance1Btn3">Explication séance 1</a>
-           <a href="estimation/seance1/lecture_poly_adapopt_bm.pdf" target="_blank" class="rapport-btn" data-key="seance1Btn3">résultat numérique</a>
+          <a href="estimation/seance1/estimation_séance_1.pdf" target="_blank" class="rapport-btn" data-key="seance1Btn3">Compte-rendu séance 1</a>
+          
+    
+
         </div>
       </div>
     </article>
@@ -164,11 +198,9 @@
         <p data-key="seance2Desc">Le code adrs.py résout numériquement une équation ADRS (advection–diffusion–réaction–source) 1D
            par différences finies. Il compare ensuite la solution numérique avec une solution exacte fabriquée. De plus, il étudie la convergence en raffinement de maillage.
            Et pour finir, il trace la solution numérique finale,la décroissance du résidu,et calcule l’erreur numérique.</p>
-        <a href="estimation/seance2/adrsmodif.py" target="_blank" class="rapport-btn" data-key="seance2Btn1">Télécharger adrsmodif</a>
-        <a href="estimation/seance2/adrsmodif2.py" target="_blank" class="rapport-btn" data-key="seance2Btn2">Télécharger adrsmodif2</a>
-        <a href="estimation/seance2/adrsmesh.py" target="_blank" class="rapport-btn" data-key="seance2Btn3">Télécharger adrsmesh</a>
-        <a href="estimation/seance2/estimation_séance_2.pdf" target="_blank" class="rapport-btn" data-key="seance2Btn4">Explication séance 2</a>
-        <a href="estimation/seance2/integrale.py" target="_blank" class="rapport-btn" data-key="seance2Btn5">Télécharger integrale</a>
+
+        <a href="estimation/seance2/estimation_séance_2.pdf" target="_blank" class="rapport-btn" data-key="seance2Btn4">Compte rendu séance 2</a>
+        <a href="estimation/seance1/lecture_poly_adapopt_bm.pdf" target="_blank" class="rapport-btn" data-key="seance1Btn3">Compte rendu partie 4 cours_adopt</a>
       </div>
     </article>
 
@@ -179,10 +211,9 @@
       </h3>
       <div class="accordion-content">
         <p data-key="seance3Desc">Résolution d' une équation ADR 1D avec une condition initiale gaussienne en utilisant un maillage adaptatif basé sur la deuxième dérivée de la solution.</p>
-        <a href="estimation/seance3/integration_riemann_lebesgues.py" target="_blank" class="rapport-btn" data-key="seance2Btn1">Télécharger integration_riemann_lebesgues</a>
-        <a href="estimation/seance3/integmodif.py" target="_blank" class="rapport-btn" data-key="seance2Btn2">Télécharger integmodif</a>
-        <a href="estimation/seance3/integMC.py" target="_blank" class="rapport-btn" data-key="seance2Btn3">Télécharger integMC</a>
-        <a href="estimation/seance3/estimation_séance_3.pdf" target="_blank" class="rapport-btn" data-key="seance2Btn4">Explication séance 3</a>
+        <a href="estimation/seance3/estimation_séance_3.pdf" target="_blank" class="rapport-btn" data-key="seance2Btn4">Compte rendu séance 3</a>
+        
+        
         
       </div>
     </article>

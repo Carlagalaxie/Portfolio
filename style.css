@@ -359,3 +359,48 @@ header nav ul li {
     font-size: 0.9rem;
   }
 }
+
+/* ========== conteneur image ========== */
+.image-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 10px 0;
+}
+
+.image-container img {
+    width: 30%;  /* taille raisonnable pour 3 images */
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+}
+
+/* ========== conteneur GIF ========== */
+/* ========== conteneur GIF ========== */
+.gif-row {
+    display: flex;
+    justify-content: center;  /* centre horizontalement */
+    gap: 10px;                /* espace entre GIFs */
+    flex-wrap: wrap;          /* passe à la ligne si écran petit */
+    align-items: flex-start;  /* aligne correctement les GIFs pour ne pas couper */
+}
+
+/* GIFs */
+.gif-row img {
+    width: auto;              /* largeur auto pour conserver le ratio */
+    max-width: 40%;           /* chaque GIF prend jusqu'à 40% du conteneur */
+    max-height: 300px;        /* limite la hauteur pour ne pas couper */
+    object-fit: contain;      /* garantit que le GIF complet est visible */
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+}
+
+/* Responsive pour petits écrans */
+@media (max-width: 768px) {
+    .gif-row img {
+        max-width: 80%;       /* prend plus de place sur mobile */
+        max-height: none;     /* enlève limite hauteur pour mieux voir le GIF */
+    }
+}

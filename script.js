@@ -82,7 +82,16 @@ const translations = {
   "seance6Desc": "Description of session 6.",
   "footerCopy": "© 2025 - My Portfolio",
   "footerEmail": "Email",
-  "footerLinkedIn": "LinkedIn"
+  "footerLinkedIn": "LinkedIn",
+
+  "Projet1Title": "Project 1: Heat Diffusion Simulation",
+  "Projet1Desc": "This project models the distribution of temperature in a square room equipped with a radiator and a window.",
+  "Projet1Desc2": "Heat is simulated using a numerical scheme based on the diffusion equation, taking into account heat loss through the window and the input from the radiator.",
+  "ResultatsTitle": "Results:",
+  "ProjSkill1": "2D and 3D visualization of temperature evolution.",
+  "ProjSkill2": "Calculation of average temperature and standard deviation, indicators of thermal comfort.",
+  "ProjSkill3": "Analysis of the impact of radiator position and openings.",
+  "ResultatsNumTitle": "Numerical Simulations :"
 };
 
 // Fonction pour changer la langue
