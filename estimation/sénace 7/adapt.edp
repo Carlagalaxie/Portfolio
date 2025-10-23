@@ -1,0 +1,105 @@
+// This a the rotating hill problem 
+
+int kt=5;
+int kloop=10;
+int nbadap=6;
+
+bool inq=0;
+real tol=0.05;
+real tol2=5e-3;
+
+border a(t=0, 2*pi)     {    x = cos(t);    y = sin(t);  }; // the unit circle
+mesh th = buildmesh(a(70));                                 // triangulates the disk
+fespace Vh(th,P1);
+
+Vh u1 = y, u2 = -x;           // rotation velocity
+Vh m11=0,m22=0,m12=0;         // to store the metric field
+Vh vT;                        // to save the initial in big loop
+int i;
+Vh vv,vo,vp,v0,v00,v11; // working  Finite element function 
+
+
+
+
+func rhill=sqrt((x-0.3)^2 +(y-0.3)^2);
+func  hill = 1-tanh(30*(rhill-0.2));
+//func real hill(real r2)  { return 1-tanh(100*(r2-0.04));}
+
+Vh v = hill;//((x-0.3)^2 +(y-0.3)^2);     // initial condition
+
+plot(v,wait=1);
+vp=0;
+
+// initialization of the hill and mesh
+
+for (int i=0;i<nbadap;i++)
+ {
+  th=adaptmesh(th,v,err=tol,inquire=inq);
+  v = hill;//((x-0.3)^2 +(y-0.3)^2);
+        real errl2= sqrt(int2d(th)(square(vp-v))) ;
+  vp=vp-v;      
+  cout << " interation adp =" << i << "  err l2 = " << errl2 
+       << " diff min = " << vp[].min << " max =" << vp[].max << endl
+       << " --------------- " << endl; 
+  vp=v;
+  if (errl2  < tol2) break;
+plot(th,v,wait=1);
+ } 
+
+mesh th00=th;
+mesh th11=th;
+v00=v;
+ 
+real dt = 0.17,t=0;                                                 // time step
+
+v0[]=v[];
+vT[]=v[];
+
+ofstream file("convergence.txt");
+file.precision(14);
+
+real errl20=0;
+for ( i=0; i< 20/kt ; i++) {
+    real T=t; 
+    vp=0;
+    for (int k=0;k<kloop;k++)
+     {
+       t=T; //  restart
+       v=vT; // interpolation
+       m11=0;m22=0;m12=0; // reset metric   
+       adaptmesh(th,v,err=tol,metric=[m11[],m12[],m22[]],nomeshgeneration= true );  // warning change the order in version 1.28
+       
+       cout << "m11  = " << m11[].min << " " << m11[].max << endl;
+       cout << "m22  = " << m22[].min << " " << m22[].max << endl;
+       cout << "m12  = " << m12[].min << " " << m12[].max << endl;
+        
+       for (int j=0;j<kt;j++)
+        {
+          t = t+dt;
+          vo[]=v[];
+          v=convect([u1,u2],-dt,vo);                          // convect v by u1,u2, dt seconds, results in f
+          plot(v,cmm="convection: t="+t + ", min=" + v[].min + ", max=" +  v[].max,wait=1,dim=3);
+          adaptmesh(th,v,err=tol,metric=[m11[],m12[],m22[]],nomeshgeneration= true);
+        }
+        th=adaptmesh(th,v,err=tol,metric=[m11[],m12[],m22[]]);
+        vo=0; //
+        plot(th,wait=1,cmm="k=" + k + ", t= " + t + " ,i= " + i );  
+        real errl2= sqrt(int2d(th)(square(vp-v))) ;
+        cout << " interation " << k << "  err l2 = " << errl2 << " --------------- " <<endl; 
+        vp=v;
+
+	 if (k == 0) {errl20=errl2;}
+ file << errl2/errl20 << endl;
+
+        if (errl2  < tol2) break;
+     }
+	 
+	 if (i == 1) {th11=th; v11=v;}
+	 
+     vT=v; 
+//	 v00=v0;
+};
+
+
+//plot(th,v,th11,v11,th00,v00,wait=1);
+plot(th,v,th00,v00,wait=1);

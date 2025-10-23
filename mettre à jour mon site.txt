@@ -1,0 +1,14 @@
+ouvrir terminal dans le dossier portfolio
+
+
+git add .
+git commit -m "Description des modif/mise à jour"
+git push origin main
+
+
+
+
+
+
+pour ouvrir le site depuis VS code 
+clique droit sur index.html

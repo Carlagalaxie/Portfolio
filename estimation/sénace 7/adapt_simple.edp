@@ -1,0 +1,57 @@
+// This a the rotating hill problem 
+
+int kt=6;
+int kloop=5;
+int nbadap=60;  // initialization 
+
+bool inq=0;
+real tol=0.05;
+real tol2=5e-3 ; //3e-4;
+real errl20=1;
+
+border a(t=0, 2*pi)     {    x = cos(t);    y = sin(t);  }; // cercle unité
+mesh th = buildmesh(a(70));                                 // maillage du disque
+fespace Vh(th,P1);   //Element fini P1
+
+Vh u1 = y, u2 = -x;           // champ de vitesse de rotation
+Vh m11=0,m22=0,m12=0;         // champs pour stocker le tenseur métrique (non utilisé ici)
+Vh vT;                        // to save the initial in big loop
+int i;
+Vh vv,vo,vp; // fonctions auxiliaires pour stocker différentes étapes de la simulation
+
+
+
+func rhill=sqrt((x-0.3)^2 +(y-0.3)^2);   //distance par rapport au point (0.3, 0.3)
+func  hill = 1-tanh(30*(rhill-0.2));   //une fonction lisse en forme de bosse (colline) centrée en (0.3, 0.3), avec un déclin rapide.
+  
+//func real hill(real r2)  { return 1-tanh(100*(r2-0.04));}
+
+
+Vh v = hill;//((x-0.3)^2 +(y-0.3)^2);     // champ initial (la “colline”)
+
+plot(v,wait=1); // affiche la fonction sur le maillage initial.
+vp=0;   //initialisé à 0 (sera utilisé pour mesurer les différences entre itérations).
+
+// initialization of the hill and mesh
+
+ofstream file("convergence.txt");
+file.precision(14);
+
+for (int i=0;i<nbadap;i++)
+ {
+  th=adaptmesh(th,v,err=tol,hmax=0.5,hmin=0.01,inquire=inq);  // adapte le maillage en fonction de la fonction v avec des tolérances spécifiées.
+  v = hill;//((x-0.3)^2 +(y-0.3)^2);                         // réinitialise v à la fonction de la colline après l'adaptation du maillage.
+        real errl2= sqrt(int2d(th)(square(vp-v))) ;  // calcule l'erreur L2 entre la fonction actuelle et la précédente.
+ 
+   if (i == 0) {errl20=errl2;}  // stocke la première erreur L2 pour la normalisation.
+ file << errl2/errl20 << endl;  
+		
+  vp=vp-v;           // calcule la différence entre la fonction actuelle et la précédente.
+  cout << " interation adp =" << i << "  err l2 = " << errl2 
+       << " diff min = " << vp[].min << " max =" << vp[].max << endl
+       << " --------------- " << endl; 
+  vp=v;
+  if (errl2  < tol2) break;  // arrête si l'erreur est en dessous du seuil.
+plot(th,v,wait=1);
+ } 
+ 

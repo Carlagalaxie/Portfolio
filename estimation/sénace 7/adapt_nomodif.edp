@@ -1,0 +1,139 @@
+// rotating hill — version avec diffusion et dissipation
+// =====================================================
+
+// -------- paramètres globaux ----------
+int kt = 5;
+int kloop = 1;
+int nbadap = 6;
+
+bool inq = 0;
+real tol = 0.05;
+real tol2 = 5e-3;
+
+// --- Paramètres de diffusion / dissipation (à ajuster) ---
+real nu = 1e-3;    // viscosité (diffusion)
+real alpha = 5e-3; // coefficient de dissipation (amortissement)
+
+// -------- domaine et espace FE ----------
+border a(t = 0, 2*pi) { x = cos(t); y = sin(t); };
+mesh th = buildmesh(a(70));
+fespace Vh(th, P1);
+Vh phi;
+
+// -------- champs auxiliaires ----------
+Vh u1 = y, u2 = -x;
+Vh m11 = 0, m22 = 0, m12 = 0;
+Vh vT;
+Vh vv, vo, vp, v0, v00, v11;
+
+// -------- hill ----------
+func rhill = sqrt((x - 0.3)^2 + (y - 0.3)^2);
+func hill = 1 - tanh(30 * (rhill - 0.2));
+
+Vh v = hill;
+plot(v, wait = 1);
+vp = 0;
+
+// -------- pré-adaptation du maillage ----------
+for (int i = 0; i < nbadap; i++)
+{
+    th = adaptmesh(th, v, err = tol, inquire = inq);
+    Vh v(th, P1);
+    v = hill;
+    real errl2 = sqrt(int2d(th)(square(vp - v)));
+    vp = vp - v;
+    cout << "iter pre-adapt = " << i << "  err l2 = " << errl2
+         << " diff min = " << vp[].min << " max = " << vp[].max << endl << "---------------" << endl;
+    vp = v;
+    if (errl2 < tol2) break;
+    plot(th, v, fill = false, wait = 1);
+}
+
+// sauvegardes
+mesh th00 = th;
+mesh th11 = th;
+v00 = v;
+
+real dt = 0.17, t = 0;
+v0[] = v[];
+vT[] = v[];
+
+ofstream file("convergence.txt");
+file.precision(14);
+
+real errl20 = 0;
+
+// -------- boucle temporelle principale ----------
+for (int i = 0; i < 20 / kt; i++)
+{
+    real T = t;
+    vp = 0;
+
+    for (int k = 0; k < kloop; k++)
+    {
+        t = T;
+        v = vT;
+        m11 = 0; m22 = 0; m12 = 0;
+
+        adaptmesh(th, v, err = tol, metric = [m11[], m12[], m22[]], nomeshgeneration = true);
+
+        cout << "m11  = " << m11[].min << " " << m11[].max << endl;
+        cout << "m22  = " << m22[].min << " " << m22[].max << endl;
+        cout << "m12  = " << m12[].min << " " << m12[].max << endl;
+
+        // === préparation pour diffusion/dissipation ===
+        Vh v_conv, v_next;
+
+        // définition du problème implicite (diffusion + dissipation)
+        problem DiffusionImplicit(v_next, phi)
+            = int2d(th)(v_next*phi)
+            + dt*nu*int2d(th)(dx(v_next)*dx(phi) + dy(v_next)*dy(phi))
+            + dt*alpha*int2d(th)(v_next*phi)
+            - int2d(th)(v_conv*phi);
+
+        // --- boucle temporelle (remplace la boucle j) ---
+        for (int j = 0; j < kt; j++)
+        {
+            t = t + dt;
+            vo[] = v[];
+
+            // 1) étape de convection explicite
+            v_conv = convect([u1, u2], -dt, vo);
+
+            // 2) étape diffusion + dissipation implicite
+            DiffusionImplicit;
+
+            // mise à jour
+            v = v_next;
+
+            // affichage / post-traitement
+            plot(v, cmm="convection+diffusion: t="+t
+                 + ", min=" + v[].min + ", max=" + v[].max, wait=1, dim=3);
+
+            // adaptation (maillage métrique sans régénération)
+            adaptmesh(th, v, err=tol, metric=[m11[],m12[],m22[]], nomeshgeneration = true);
+        }
+
+        // régénération finale du maillage après les kt pas
+        th = adaptmesh(th, v, err = tol, metric = [m11[], m12[], m22[]]);
+
+        vo = 0;
+        plot(th, v, fill = false, wait = 1, cmm = "k=" + k + ", t= " + t + " ,i= " + i);
+
+        real errl2 = sqrt(int2d(th)(square(vp - v)));
+        cout << " iteration (k=" << k << ")  err l2 = " << errl2 << " --------------- " << endl;
+        vp = v;
+
+        if (k == 0) { errl20 = errl2; }
+        file << errl2 / errl20 << endl;
+
+        if (errl2 < tol2) break;
+    }
+
+    if (i == 1) { th11 = th; v11 = v; }
+
+    vT = v;
+}
+
+file.close();
+cout << "Simulation terminée. Dernier temps t = " << t << endl;
